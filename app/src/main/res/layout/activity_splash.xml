@@ -1,0 +1,31 @@
+<!--
+    activity_splash.xml
+    Splash screen: campfire/pine tree logo, app title.
+    Auto-transitions to MainActivity after 3 seconds.
+    Dark mode / nature theme colour palette.
+    -->
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="40dp"
+    android:background="#1B2A1B">
+    <!--  Campfire / Pine Tree Logo  -->
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+        android:text="🏕️" android:textSize="96sp" android:layout_marginBottom="24dp"/>
+    <!--  App Title  -->
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Campsite" android:textSize="42sp" android:textStyle="bold" android:textColor="#A5D6A7" android:fontFamily="sans-serif-condensed" android:letterSpacing="0.05"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="COMMANDER" android:textSize="28sp" android:textStyle="bold" android:textColor="#FFFFFF" android:letterSpacing="0.15" android:layout_marginBottom="16dp"/>
+    <!--  Tagline  -->
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Never forget your gear again." android:textSize="14sp" android:textColor="#81C784" android:layout_marginBottom="48dp"/>
+    <!--  Divider  -->
+    <View android:layout_width="60dp" android:layout_height="2dp" android:background="#4CAF50" android:layout_marginBottom="48dp"/>
+    <!--  Student Info  -->
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Your Name Here" android:textSize="16sp" android:textStyle="bold" android:textColor="#FFFFFF" android:layout_marginBottom="4dp"/>
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ST10529833" android:textSize="13sp" android:textColor="#81C784" android:layout_marginBottom="48dp"/>
+    <!--  Loading indicator text  -->
+    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Loading your adventure..." android:textSize="12sp" android:textColor="#4CAF50"/>
+</LinearLayout>
+
