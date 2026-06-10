@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SummativeProject">
         <activity
+            android:name=".DetailedViewScreen"
+            android:exported="false" />
+        <activity
+            android:name=".Splash"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

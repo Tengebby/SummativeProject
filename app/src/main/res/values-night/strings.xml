@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="add_gear_to_inventory">Add Gear to Inventory</string>
+    <string name="add_gear">Add Gear</string>
+    <string name="specific_notes_comments">Specific Notes / Comments</string>
+    <string name="quantity_e_g_2">Quantity (e.g., 2)</string>
+    <string name="items_in_pack_0_entries_0_total_units">Items in Pack: 0 entries | 0 total units</string>
+    <string name="Campsite">🏕️</string>
+    <string name="campsite">Campsite</string>
+</resources>
