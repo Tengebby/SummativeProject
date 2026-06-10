@@ -1,120 +1,188 @@
-# Campsite Commander - IMAD5112 Practicum
+Campsite Commander is a camping inventory app that allows users to add, view, and manage gear items. The app uses arrays to store item information and displays a checklist of equipment for outdoor trips.
 
-## Student Details
-- **Name:** Your Name Here
-- **Student Number:** ST10529833
-- **Module:** IMAD5112 – Introduction to Mobile Application Development
-- **GitHub Repository:** [https://github.com/ST10529833/CampsiteCommander](https://github.com/ST10529833/CampsiteCommander) *(update this link)*
+ Psuedo Code:
+ START
 
----
+Splash Activity
 
-## Purpose of the App
+OUTPUT campfire logo
+OUTPUT "Campsite Commander"
+OUTPUT student details
 
-Campsite Commander is a native Android inventory app for outdoor adventures. It helps campers manage their packing list by:
+WAIT 3000 milliseconds
 
-- Adding gear items with a name, category (Shelter, Cooking, First Aid, Clothing, Navigation, Other), quantity, and notes.
-- Storing all data in parallel arrays (itemNames, itemCategories, itemQuantities, itemNotes).
-- Using a loop to calculate the total number of items packed.
-- Providing a detailed checklist view showing each item's full information.
-- Pre-loading sample data so users have a starting point.
-- Allowing users to clear the entire pack and re-enter data.
+OPEN MainActivity
+CLOSE SplashActivity
 
----
+Main Activity
 
-## Design Considerations
+DECLARATIONS
 
-- **Dark mode / nature theme:** Background `#1B2A1B` (deep forest green), accent `#4CAF50` (leaf green), text `#A5D6A7`.
-- **Three-screen architecture:** Splash (3s auto-transition) → Main → Detail.
-- **Parallel arrays:** Four arrays of size 20 track name, category, quantity, and notes per item.
-- **Loop-based total:** A `for` loop sums all `itemQuantities[]` entries to display total units packed.
-- **Category colour badges:** Each category has a distinct colour in the detail view for quick identification.
-- **Error handling:** Empty fields, non-numeric/zero quantities, and full-list scenarios all show Toast messages.
-- **Logging:** `Log.d` and `Log.e` throughout for code understanding and debugging.
+itemNames[20] : STR
+itemCategories[20] : STR
+itemQuantities[20] : NUM
+itemNotes[20] : STR
 
----
+itemCount : NUM
+counter : NUM
+currentIndex : NUM
 
-## Pseudocode
+btnAddGear : BUTTON
+btnViewChecklist : BUTTON
+btnClearPack : BUTTON
+btnExit : BUTTON
 
-```
-START App
-  SHOW SplashActivity
-    DISPLAY campfire emoji logo, "Campsite Commander" title, student info
-    WAIT 3000ms
-    NAVIGATE to MainActivity, CLOSE SplashActivity
+txtName : TEXTBOX
+spnCategory : SPINNER
+txtQuantity : NUMERIC TEXTBOX
+txtNotes : TEXTBOX
 
-  SHOW MainActivity
-    DECLARE arrays: itemNames[20], itemCategories[20], itemQuantities[20], itemNotes[20]
-    DECLARE itemCount = 0
-    LOAD sampleData() → pre-fill first 5 items into arrays, itemCount = 5
-    DISPLAY total items using loop
+SET itemCount = 0
 
-    WHEN user clicks "Add Gear":
-      READ name, category (spinner), quantity, notes from inputs
-      IF name is empty THEN show error Toast, STOP
-      IF quantity is empty THEN show error Toast, STOP
-      IF quantity is not a positive integer THEN show error Toast, STOP
-      IF itemCount >= 20 THEN show "Pack full" Toast, STOP
-      STORE in arrays at index itemCount
-      itemCount++
-      UPDATE total display using loop
-      CLEAR input fields
+PROCESS
 
-    WHEN user clicks "View Full Checklist":
-      IF itemCount == 0 THEN show "Pack empty" Toast, STOP
-      PASS arrays + itemCount to DetailActivity via Intent
+Load sample data
+SET itemCount = 5
 
-    WHEN user clicks "Clear Pack":
-      RESET all arrays to empty/zero
-      SET itemCount = 0
-      UPDATE total display
+OUTPUT "Total Items: " + itemCount
 
-    WHEN user clicks "Exit":
-      CLOSE app
+WHEN btnAddGear IS CLICKED
 
-  SHOW DetailActivity
-    RECEIVE itemNames[], itemCategories[], itemQuantities[], itemNotes[], itemCount from Intent
-    SET currentIndex = 0
-    DISPLAY item at currentIndex
+    INPUT txtName
+    INPUT spnCategory
+    INPUT txtQuantity
+    INPUT txtNotes
 
-    WHEN user clicks "Next":
-      IF currentIndex < itemCount - 1 THEN currentIndex++, refresh display
-      ELSE show "Last item" Toast
+    IF txtName = "" THEN
+        OUTPUT "Enter item name"
+        STOP
+    ENDIF
 
-    WHEN user clicks "Previous":
-      IF currentIndex > 0 THEN currentIndex--, refresh display
-      ELSE show "First item" Toast
+    IF txtQuantity = "" THEN
+        OUTPUT "Enter quantity"
+        STOP
+    ENDIF
 
-    WHEN user clicks "Back to Base":
-      RETURN to MainActivity
+    IF txtQuantity <= 0 THEN
+        OUTPUT "Quantity must be positive"
+        STOP
+    ENDIF
 
-END App
-```
+    IF itemCount >= 20 THEN
+        OUTPUT "Pack Full"
+        STOP
+    ENDIF
 
----
+    itemNames[itemCount] = txtName
+    itemCategories[itemCount] = spnCategory
+    itemQuantities[itemCount] = txtQuantity
+    itemNotes[itemCount] = txtNotes
 
-## Screenshots
+    itemCount = itemCount + 1
 
-> *(Add screenshots after running on emulator)*
+    OUTPUT "Item Added"
+    OUTPUT "Total Items: " + itemCount
 
-### Screen 1 – Splash Screen
-- Deep forest green background with campfire emoji logo.
-- App title "Campsite Commander", tagline, student name and number.
-- Auto-transitions to Main after 3 seconds.
+    CLEAR txtName
+    CLEAR txtQuantity
+    CLEAR txtNotes
 
-### Screen 2 – Main Screen
-- Pack Status card showing total entries and total units.
-- Add Gear form: Item Name, Category spinner, Quantity, Notes.
-- Buttons: Add Gear, View Full Checklist, Clear Pack, Exit App.
+END WHEN
 
-### Screen 3 – Detail / Checklist Screen
-- One item displayed at a time in a dark card.
-- Colour-coded category badge (green=Shelter, orange=Cooking, red=First Aid, etc.)
-- Previous / Next to cycle through items.
-- "Back to Base" returns to Main screen.
+WHEN btnViewChecklist IS CLICKED
 
-### Error Messages
-- *"Please enter an item name."* – empty name field
-- *"Please enter a quantity."* – empty quantity field
-- *"Quantity must be a positive whole number."* – invalid quantity
-- *"Packing list is full! Max 20 items allowed."* – array capacity reached
-- *"Your pack is empty! Add some gear first."* – viewing details with no items
+    IF itemCount = 0 THEN
+        OUTPUT "Pack Empty"
+    ELSE
+        OPEN DetailActivity
+    ENDIF
+
+END WHEN
+
+WHEN btnClearPack IS CLICKED
+
+    FOR counter ← 0 TO 19
+
+        itemNames[counter] = ""
+        itemCategories[counter] = ""
+        itemQuantities[counter] = 0
+        itemNotes[counter] = ""
+
+    ENDFOR
+
+    itemCount = 0
+
+    OUTPUT "Pack Cleared"
+    OUTPUT "Total Items: 0"
+
+END WHEN
+
+WHEN btnExit IS CLICKED
+
+    CLOSE APPLICATION
+
+END WHEN
+
+Detail Activity
+
+DECLARATIONS
+
+currentIndex : NUM
+
+btnNext : BUTTON
+btnPrevious : BUTTON
+btnBackToBase : BUTTON
+
+SET currentIndex = 0
+
+DISPLAY itemNames[currentIndex]
+DISPLAY itemCategories[currentIndex]
+DISPLAY itemQuantities[currentIndex]
+DISPLAY itemNotes[currentIndex]
+
+WHEN btnNext IS CLICKED
+
+    IF currentIndex < itemCount - 1 THEN
+
+        currentIndex = currentIndex + 1
+
+        DISPLAY itemNames[currentIndex]
+        DISPLAY itemCategories[currentIndex]
+        DISPLAY itemQuantities[currentIndex]
+        DISPLAY itemNotes[currentIndex]
+
+    ELSE
+
+        OUTPUT "Last Item"
+
+    ENDIF
+
+END WHEN
+
+WHEN btnPrevious IS CLICKED
+
+    IF currentIndex > 0 THEN
+
+        currentIndex = currentIndex - 1
+
+        DISPLAY itemNames[currentIndex]
+        DISPLAY itemCategories[currentIndex]
+        DISPLAY itemQuantities[currentIndex]
+        DISPLAY itemNotes[currentIndex]
+
+    ELSE
+
+        OUTPUT "First Item"
+
+    ENDIF
+
+END WHEN
+
+WHEN btnBackToBase IS CLICKED
+
+    OPEN MainActivity
+    CLOSE DetailActivity
+
+END WHEN
+
+END APPLICATION
