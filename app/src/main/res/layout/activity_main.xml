@@ -1,0 +1,140 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F4F6F0">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Campsite Inventory Tracker"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:textColor="#1B5E20"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="4dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter Available vs Required quantities per category"
+            android:textSize="13sp"
+            android:textColor="#4E342E"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="20dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2.2"
+                android:text="Category"
+                android:textStyle="bold"
+                android:textColor="#1B5E20"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_width"
+                android:layout_weight="1.9"
+                android:text="Available"
+                android:textStyle="bold"
+                android:textColor="#2E7D32"
+                android:gravity="center"/>
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.9"
+                android:text="Required"
+                android:textStyle="bold"
+                android:textColor="#3E2723"
+                android:gravity="center"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2.2" android:text="Tents &amp; Bedding" android:textColor="#333333" android:textSize="14sp"/>
+            <EditText android:id="@+id/etCat1Have" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Have" android:textSize="14sp" android:padding="4dp" android:layout_marginEnd="8dp" android:backgroundTint="#A5D6A7"/>
+            <EditText android:id="@+id/etCat1Need" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Need" android:textSize="14sp" android:padding="4dp" android:backgroundTint="#D7CCC8"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2.2" android:text="Stove &amp; Cooking" android:textColor="#333333" android:textSize="14sp"/>
+            <EditText android:id="@+id/etCat2Have" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Have" android:textSize="14sp" android:padding="4dp" android:layout_marginEnd="8dp" android:backgroundTint="#A5D6A7"/>
+            <EditText android:id="@+id/etCat2Need" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Need" android:textSize="14sp" android:padding="4dp" android:backgroundTint="#D7CCC8"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2.2" android:text="Food &amp; Water" android:textColor="#333333" android:textSize="14sp"/>
+            <EditText android:id="@+id/etCat3Have" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Have" android:textSize="14sp" android:padding="4dp" android:layout_marginEnd="8dp" android:backgroundTint="#A5D6A7"/>
+            <EditText android:id="@+id/etCat3Need" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Need" android:textSize="14sp" android:padding="4dp" android:backgroundTint="#D7CCC8"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2.2" android:text="Lights &amp; Tools" android:textColor="#333333" android:textSize="14sp"/>
+            <EditText android:id="@+id/etCat4Have" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Have" android:textSize="14sp" android:padding="4dp" android:layout_marginEnd="8dp" android:backgroundTint="#A5D6A7"/>
+            <EditText android:id="@+id/etCat4Need" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Need" android:textSize="14sp" android:padding="4dp" android:backgroundTint="#D7CCC8"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2.2" android:text="Fuel &amp; Batteries" android:textColor="#333333" android:textSize="14sp"/>
+            <EditText android:id="@+id/etCat5Have" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Have" android:textSize="14sp" android:padding="4dp" android:layout_marginEnd="8dp" android:backgroundTint="#A5D6A7"/>
+            <EditText android:id="@+id/etCat5Need" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Need" android:textSize="14sp" android:padding="4dp" android:backgroundTint="#D7CCC8"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="10dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2.2" android:text="First Aid &amp; Safety" android:textColor="#333333" android:textSize="14sp"/>
+            <EditText android:id="@+id/etCat6Have" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Have" android:textSize="14sp" android:padding="4dp" android:layout_marginEnd="8dp" android:backgroundTint="#A5D6A7"/>
+            <EditText android:id="@+id/etCat6Need" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Need" android:textSize="14sp" android:padding="4dp" android:backgroundTint="#D7CCC8"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="20dp" android:gravity="center_vertical">
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="2.2" android:text="Camp Apparel" android:textColor="#333333" android:textSize="14sp"/>
+            <EditText android:id="@+id/etCat7Have" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Have" android:textSize="14sp" android:padding="4dp" android:layout_marginEnd="8dp" android:backgroundTint="#A5D6A7"/>
+            <EditText android:id="@+id/etCat7Need" android:layout_width="0dp" android:layout_height="40dp" android:layout_weight="1.9" android:inputType="number" android:hint="Need" android:textSize="14sp" android:padding="4dp" android:backgroundTint="#D7CCC8"/>
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            app:cardCornerRadius="12dp"
+            app:cardElevation="4dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="#1B5E20">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CAMP PREPAREDNESS SCORE"
+                    android:textSize="11sp"
+                    android:textColor="#C8E6C9"
+                    android:letterSpacing="0.1"
+                    android:layout_marginBottom="4dp"/>
+                <TextView
+                    android:id="@+id/tvReadinessScore"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Readiness Rating: --"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFFFFF"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <Button android:id="@+id/btnCalculate" android:layout_width="match_parent" android:layout_height="52dp" android:text="Calculate Readiness Score" android:textSize="15sp" android:backgroundTint="#2E7D32" android:layout_marginBottom="12dp"/>
+        <Button android:id="@+id/btnViewDetails" android:layout_width="match_parent" android:layout_height="52dp" android:text="View Category Details" android:textSize="15sp" android:backgroundTint="#81C784" android:layout_marginBottom="12dp"/>
+        <Button android:id="@+id/btnClear" android:layout_width="match_parent" android:layout_height="52dp" android:text="Reset Inventory Sheets" android:textSize="15sp" android:backgroundTint="#D84315" android:layout_marginBottom="12dp"/>
+        <Button android:id="@+id/btnExit" android:layout_width="match_parent" android:layout_height="52dp" android:text="Exit App" android:textSize="15sp" android:backgroundTint="#757575"/>
+    </LinearLayout>
+</ScrollView>
